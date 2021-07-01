@@ -1,0 +1,12 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./info.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-30(date{ISO8601} [%thread]) %-5level %logger{32} %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level='INFO'>
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
