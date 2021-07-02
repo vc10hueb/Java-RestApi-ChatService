@@ -7,7 +7,7 @@ This is an example Rest API Service written using:
 - Postgres
 
 #Development
-This artifact built by this project is a WAR that can be deployed via tomcat.
+The artifact built by this project is a WAR that can be deployed via tomcat.
 
 Spring Boot command can also be used `java -jar example.war`
 
