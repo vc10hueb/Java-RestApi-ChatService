@@ -5,7 +5,7 @@ services:
     image: flyway/flyway
     command: -url=jdbc:postgresql://example_db_image/example -schemas=public -user=dev -password=dev -connectRetries=60 migrate
     volumes:
-      - ./src/main/resources/database/migration:/flyway/sql
+      - ./src/main/resources/db/migration:/flyway/sql
     depends_on:
       - example_db_image
   example_db_image:
@@ -13,6 +13,8 @@ services:
     image: example_db_image
     expose:
       - "5432"
+    ports:
+      - "6011:5432"
     container_name: example-database
     environment:
       - POSTGRES_USERNAME=dev
@@ -27,7 +29,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - DB_SERVER=example-database
-      - DB_PORT=5432
+      - DB_PORT=5433
       - DB_USERNAME=DEV
       - DB_PASSWORD=DEV
     links:

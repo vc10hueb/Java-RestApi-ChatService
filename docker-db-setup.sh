@@ -13,7 +13,7 @@ RUNNING = $(docker inspect --format="{{ .State.Running }}" $CONTAINER 2> /dev/nu
 
 if [ $? -eq 1]; then
   echo "$CONTAINER does not exist, creating now..."
-  docker run -d -p "$PORT:5432" --name $CONTAINER $IMAGE
+  docker run --name $CONTAINER -d -p $IMAGE "$PORT:5432"
 else
   docker start $CONTAINER
 fi

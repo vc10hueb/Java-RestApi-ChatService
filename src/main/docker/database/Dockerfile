@@ -1,4 +1,4 @@
-FROM postgres:9.6.6
+FROM postgres:buster
 
 # expose the 5432 port to outside the container
 EXPOSE 5432

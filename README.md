@@ -28,3 +28,13 @@ To create the schema and populate the database `mvn flyway:migrate`.
 ###Docker Compose
 A docker compose will run and initialize the database and application `docker-compose up`
 For more detailed logging try `docker-compose logs --follow example-service | grep textToSearchFor`
+
+
+###Docker Commands for Debugging
+1. See a containers properties i.e. IP Address
+- `docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' example-database`
+2. Docker volumes ("datastores") also need to be cleared on occasion
+- `docker volume ls`
+- `docker prune ls`
+3.   
+  docker exec -ti my_container
