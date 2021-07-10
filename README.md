@@ -36,5 +36,5 @@ For more detailed logging try `docker-compose logs --follow example-service | gr
 2. Docker volumes ("datastores") also need to be cleared on occasion
 - `docker volume ls`
 - `docker prune ls`
-3.   
-  docker exec -ti my_container
+3. Open command line for a specifc console 
+- `docker exec -ti example-database`
