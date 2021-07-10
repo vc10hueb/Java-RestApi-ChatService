@@ -30,7 +30,7 @@
         <flyway.password>dev</flyway.password>
 
         <flyway.schemas>public</flyway.schemas>
-        <flyway.url>jdbc:postgresql://localhost:5432/example</flyway.url>
+        <flyway.url>jdbc:postgresql://localhost:6011/example</flyway.url>
         <flyway.outOfOrder>true</flyway.outOfOrder>
     </properties>
 

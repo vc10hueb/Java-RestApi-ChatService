@@ -5,7 +5,7 @@ services:
     image: flyway/flyway
     command: -url=jdbc:postgresql://example_db_image/example -schemas=public -user=dev -password=dev -connectRetries=60 migrate
     volumes:
-      - ./src/main/resources/db/migration:/flyway/sql
+      - ./src/main/resources/sql:/flyway/sql
     depends_on:
       - example_db_image
   example_db_image:
