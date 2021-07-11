@@ -3,35 +3,35 @@ version: "3.3"
 services:
   flyway:
     image: flyway/flyway
-    command: -url=jdbc:postgresql://example_db_image/example -schemas=public -user=dev -password=dev -connectRetries=60 migrate
+    command: -url=jdbc:postgresql://message_db_image/message -schemas=public -user=dev -password=dev -connectRetries=60 migrate
     volumes:
       - ./src/main/resources/sql:/flyway/sql
     depends_on:
-      - example_db_image
-  example_db_image:
+      - message_db_image
+  message_db_image:
     build: src/main/docker/database
-    image: example_db_image
+    image: message_db_image
     expose:
       - "5432"
     ports:
       - "6011:5432"
-    container_name: example-database
+    container_name: message-database
     environment:
       - POSTGRES_USERNAME=dev
       - POSTGRES_PASSWORD=dev
-  example_service_image:
+  message_service_image:
     build: .
-    image: example_service_image
+    image: message_service_image
     volumes:
-      - ./target:/opt/example-service
+      - ./target:/opt/message-service
     ports:
       - "8090:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - DB_SERVER=example-database
+      - DB_SERVER=message-database
       - DB_PORT=5433
       - DB_USERNAME=DEV
       - DB_PASSWORD=DEV
     links:
-      - example_db_image
-    container_name: example-service
+      - message_db_image
+    container_name: message-service

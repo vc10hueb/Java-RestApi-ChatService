@@ -1,4 +1,4 @@
-package com.example;
+package com.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,17 +12,14 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableCaching
 @EnableAsync
-@PropertySources({
-          @PropertySource(value = {"classpath:default.properties"})
-        , @PropertySource(value = {"file:${catalina.base}/conf/example-service.properties)"}, ignoreResourceNotFound = true)
-})
-public class ExampleApplication extends SpringBootServletInitializer {
+@PropertySources({@PropertySource(value = {"classpath:default.properties"})})
+public class MessageApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder) {
-        return applicationBuilder.sources(ExampleApplication.class);
+        return applicationBuilder.sources(MessageApplication.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ExampleApplication.class, args);
+        SpringApplication.run(MessageApplication.class, args);
     }
 }

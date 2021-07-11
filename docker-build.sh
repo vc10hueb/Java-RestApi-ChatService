@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DB_IMAGE=example_db_image
-SERVICE_IMAGE=example_service_image
+DB_IMAGE=message_db_image
+SERVICE_IMAGE=message_service_image
 
 echo "Building database image $DB_IMAGE..."
 docker build -t $DB_IMAGE --no-cache ./src/main/docker/database

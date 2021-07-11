@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>JavaBackEndExample</artifactId>
+    <groupId>com.message</groupId>
+    <artifactId>Message_Service</artifactId>
     <version>0.0.1</version>
     <packaging>war</packaging>
 
@@ -16,8 +16,8 @@
         <relativePath/>
     </parent>
 
-    <name>Example</name>
-    <description>Service example for a Java project</description>
+    <name>Messaging</name>
+    <description>Messaging service backend in Java</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -30,7 +30,7 @@
         <flyway.password>dev</flyway.password>
 
         <flyway.schemas>public</flyway.schemas>
-        <flyway.url>jdbc:postgresql://localhost:6011/example</flyway.url>
+        <flyway.url>jdbc:postgresql://localhost:6011/message</flyway.url>
         <flyway.locations>classpath:sql</flyway.locations>
     </properties>
 
@@ -41,6 +41,12 @@
             <artifactId>spring-boot-starter-parent</artifactId>
             <version>2.5.2</version>
             <type>pom</type>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.5.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
         <dependency>
@@ -124,10 +130,22 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.glassfish/javax.el -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>example-service</finalName>
+        <finalName>message-service</finalName>
 
         <plugins>
             <plugin>

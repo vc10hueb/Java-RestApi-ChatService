@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IMAGE=example_service_db_image
-CONTAINER=example-service-db
+IMAGE=message_service_db_image
+CONTAINER=message-service-db
 PORT=6011
 
 if [[ "docker images -q $IMAGE 2> /dev/null" == ""]]; then
