@@ -8,10 +8,12 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableCaching
 @EnableAsync
+@EnableTransactionManagement
 @PropertySources({@PropertySource(value = {"classpath:default.properties"})})
 public class MessageApplication extends SpringBootServletInitializer {
     @Override

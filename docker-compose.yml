@@ -5,7 +5,7 @@ services:
     image: flyway/flyway
     command: -url=jdbc:postgresql://message_db_image/message -schemas=public -user=dev -password=dev -connectRetries=60 migrate
     volumes:
-      - ./src/main/resources/sql:/flyway/sql
+      - ./src/main/resources/db/migration:/flyway/sql
     depends_on:
       - message_db_image
   message_db_image:
@@ -29,9 +29,9 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - DB_SERVER=message-database
-      - DB_PORT=5433
-      - DB_USERNAME=DEV
-      - DB_PASSWORD=DEV
+      - DB_PORT=5432
+      - DB_USERNAME=dev
+      - DB_PASSWORD=dev
     links:
       - message_db_image
     container_name: message-service

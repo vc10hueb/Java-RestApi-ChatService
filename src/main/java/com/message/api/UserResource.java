@@ -1,6 +1,6 @@
 package com.message.api;
 
-import com.message.model.user.User;
+import com.message.model.User;
 import com.message.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,10 +31,10 @@ public class UserResource {
     @GetMapping
     @RequestMapping("/delete/{userId}")
     @ApiOperation("This api call will delete a user.")
-    public void deleteUser(@PathVariable Integer userId) {
-        log.info("Deleting user with Id: {}", userId);
-        userService.deleteUser(userId);
-        log.info("User deleted.");
+    public void deleteUser(@RequestBody User user) {
+        log.debug("Deleting user with Id: {}", user.getId());
+        userService.deleteUser(user);
+        log.debug("User deleted.");
     }
 
     @PostMapping
@@ -43,7 +43,7 @@ public class UserResource {
     @ResponseBody
     public User getUser(@RequestBody User user) {
         log.debug("Creating new user with username: {}", user.getUsername());
-        return userService.createOrUpdateUser(user);
+        return userService.saveUser(user);
     }
 
 

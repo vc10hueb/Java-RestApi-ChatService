@@ -6,7 +6,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TABLE "user"
+CREATE TABLE user_info
 (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -17,21 +17,21 @@ CREATE TABLE "user"
     active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW()
-)
+);
 
 CREATE TRIGGER trigger_updated_at_user BEFORE UPDATE
-ON "user" FOR EACH ROW EXECUTE PROCEDURE
+ON user_info FOR EACH ROW EXECUTE PROCEDURE
 trigger_set_timestamp();
 
 CREATE TABLE message
 (
     id SERIAL PRIMARY KEY,
-    user_id INTEGER references "user",
+    user_id INTEGER references user_info,
     message VARCHAR(500),
     active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW()
-)
+);
 
 CREATE TRIGGER trigger_updated_at_message BEFORE UPDATE
 ON message FOR EACH ROW EXECUTE PROCEDURE

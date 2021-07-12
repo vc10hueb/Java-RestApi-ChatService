@@ -10,7 +10,7 @@ The artifact built by this project is a WAR that can be deployed via tomcat.
 Spring Boot command can also be used `java -jar java_messaging_service.war`
 
 The best way to deploy new code is using the dev profile 
-`java -jar message_service.war --spring.profiles-active=dev`
+`java -jar message-service.war --spring.profiles-active=dev`
 
 ##Database
 The application uses a postgresql database. 

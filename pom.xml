@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.2</version>
+        <version>2.4.1</version>
         <relativePath/>
     </parent>
 
@@ -31,7 +31,7 @@
 
         <flyway.schemas>public</flyway.schemas>
         <flyway.url>jdbc:postgresql://localhost:6011/message</flyway.url>
-        <flyway.locations>classpath:sql</flyway.locations>
+        <flyway.outOfOrder>true</flyway.outOfOrder>
     </properties>
 
     <dependencies>
@@ -39,14 +39,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-parent</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
             <type>pom</type>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
         <dependency>
@@ -58,19 +58,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
@@ -84,13 +84,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.22</version>
+            <version>42.2.23</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.ws/spring-ws-core -->
         <dependency>
@@ -114,13 +114,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
-            <version>2.5.2</version>
+            <version>2.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -141,6 +141,18 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>2.4.1</version>
         </dependency>
     </dependencies>
 
@@ -177,6 +189,7 @@
             </plugin>
 
         </plugins>
+
 
     </build>
 

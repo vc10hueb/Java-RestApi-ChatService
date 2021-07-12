@@ -1,16 +1,18 @@
 package com.message.service;
 
-import com.message.model.message.Message;
-import com.message.repository.message.MessageRepository;
+import com.message.model.Message;
+import com.message.repository.MessageRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The business logic layer for messages.
  */
+@Slf4j
 @Service
 public class MessageService {
 
@@ -24,38 +26,27 @@ public class MessageService {
      * @return the list of messages for the user
      */
     public List<Message> getMessages(int userId) {
-        return messageRepository.readMessages(userId);
+        List<Message> messages = new ArrayList<>();
+        messageRepository.findAllById(new ArrayList<>(userId)).forEach(messages::add);
+        return messages;
     }
 
     /**
-     * Create a new message for user.
-     * @param message the message to create.
-     * @return the message with the Id populated from the database
+     * Create or update a new message for the user.
+     * @param message the message to create or update
+     * @return the message populated after the save
      */
-    public Message createOrUpdateMessage(Message message) {
-        Integer messageId = message.getId();
-        LocalDateTime createdAt = message.getCreateAt();
-        if ( messageId == null) {
-            messageId = messageRepository.createMessage(message.getUserId(), message.getMessage());
-            createdAt = LocalDateTime.now();
-        } else {
-            messageRepository.updateMessage(message.getId(), message.getMessage());
-        }
-        return Message.builder()
-                .id(messageId)
-                .active(true)
-                .createdAt(createdAt)
-                .updatedAt(LocalDateTime.now())
-                .userId(message.getUserId())
-                .message(message.getMessage()).build();
+    public Message saveMessage(Message message) {
+        return messageRepository.save(message);
     }
 
     /**
-     * Delete a message for a user.
+     * Delete a message for a user. This is a soft delete.
      *
-     * @param messageId the Id of the message to delete
+     * @param message the message to delete
      */
-    public void deleteMessage(int messageId) {
-        messageRepository.deleteMessage(messageId);
+    public void deleteMessage(Message message) {
+        message.setActive(false);
+        messageRepository.save(message);
     }
 }
