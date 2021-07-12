@@ -7,7 +7,7 @@ an active directory layer would replace the user service.
 #Development
 The artifact built by this project is a WAR that can be deployed via tomcat.
 
-Spring Boot command can also be used `java -jar java_messaging_service.war`
+Spring Boot command can also be used `java -jar messaging-service.war`
 
 The best way to deploy new code is using the dev profile 
 `java -jar message-service.war --spring.profiles-active=dev`
